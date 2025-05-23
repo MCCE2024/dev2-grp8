@@ -54,6 +54,13 @@ jobs:
           context: .
           push: true
           tags: ghcr.io/${{ env.REPO_LC }}:${{ env.VERSION }}
+      - name: Bump version and push changes
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          npm version patch -m "ci: bump version to %s [skip ci]"
+          git push origin main --follow-tags
 
   codeql:
     name: CodeQL Analysis
