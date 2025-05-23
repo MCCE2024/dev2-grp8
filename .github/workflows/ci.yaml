@@ -41,12 +41,14 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Extract version and repo name
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         id: vars
         run: |
           echo "VERSION=$(jq -r .version package.json)" >> $GITHUB_ENV
           echo "REPO_LC=$(echo '${{ github.repository }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
 
       - name: Build and push Docker image
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: docker/build-push-action@v5
         with:
           context: .
