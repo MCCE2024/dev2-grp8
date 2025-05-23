@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-        - name: Run ESLint
+      - name: Run ESLint
         run: npm run lint
 
       - name: Run tests
@@ -71,4 +71,4 @@ jobs:
         uses: github/codeql-action/autobuild@v3
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3
+        uses: github/codeql-action/analyze@v3 
