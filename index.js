@@ -49,7 +49,7 @@ app.post('/api/notes', (request, response) => {
     important: body.important || false,
     date: new Date(),
     id: generateId(),
-  }
+  } 
 
   notes = notes.concat(note)
 
