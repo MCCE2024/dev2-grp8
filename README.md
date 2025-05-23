@@ -130,7 +130,7 @@ Images are automatically pushed to the GitHub Container Registry on every push t
 
 ## Quality Assurance
 
-- **Static Code Analysis:** ESLint and SonarCloud (if configured)
+- **Static Code Analysis:** ESLint and CodeQL
 - **Automated Testing:** Mocha, Chai, Supertest
 - **CI/CD:** All checks run on every PR and push to main
 
